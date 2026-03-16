@@ -17,7 +17,7 @@ $tasks = [
     'task11_calc.php' => ['name' => 'Завдання 11'],
 ];
 
-$demoUrl = '/lr2/demo/index.php?from=v30';
+$demoUrl = '/lr2/demo/index.php?from=v1';
 ?>
 <!DOCTYPE html>
 <html lang="uk">
