@@ -1,0 +1,114 @@
+[
+  {
+    "id": "sol",
+    "name": "Sol",
+    "starType": "G2V",
+    "distance": 0,
+    "danger": 1,
+    "planets": [
+      {
+        "name": "Mercury",
+        "type": "Кам'яниста",
+        "habitability": 5,
+        "orbit": 0.39
+      },
+      {
+        "name": "Earth",
+        "type": "Жива планета",
+        "habitability": 100,
+        "orbit": 1
+      },
+      {
+        "name": "Mars",
+        "type": "Пустельна",
+        "habitability": 38,
+        "orbit": 1.52
+      }
+    ]
+  },
+  {
+    "id": "proxima-centauri",
+    "name": "Proxima Centauri",
+    "starType": "Червоний карлик",
+    "distance": 4.24,
+    "danger": 2,
+    "planets": [
+      {
+        "name": "Proxima b",
+        "type": "Кам'яниста",
+        "habitability": 67,
+        "orbit": 0.05
+      },
+      {
+        "name": "Proxima d",
+        "type": "Гаряча суперземля",
+        "habitability": 22,
+        "orbit": 0.03
+      }
+    ]
+  },
+  {
+    "id": "trappist-1",
+    "name": "TRAPPIST-1",
+    "starType": "Ультрахолодний карлик",
+    "distance": 39.5,
+    "danger": 3,
+    "planets": [
+      {
+        "name": "TRAPPIST-1d",
+        "type": "Кам'яниста",
+        "habitability": 49,
+        "orbit": 0.02
+      },
+      {
+        "name": "TRAPPIST-1e",
+        "type": "Помірна суперземля",
+        "habitability": 84,
+        "orbit": 0.03
+      },
+      {
+        "name": "TRAPPIST-1f",
+        "type": "Холодна суперземля",
+        "habitability": 62,
+        "orbit": 0.04
+      }
+    ]
+  },
+  {
+    "id": "kepler-442",
+    "name": "Kepler-442",
+    "starType": "K5V",
+    "distance": 1206,
+    "danger": 4,
+    "planets": [
+      {
+        "name": "Kepler-442b",
+        "type": "Суперземля",
+        "habitability": 79,
+        "orbit": 0.41
+      }
+    ]
+  },
+  {
+    "id": "tau-ceti",
+    "name": "Tau Ceti",
+    "starType": "G8V",
+    "distance": 11.9,
+    "danger": 2,
+    "planets": [
+      {
+        "name": "Tau Ceti e",
+        "type": "Суперземля",
+        "habitability": 58,
+        "orbit": 0.55
+      },
+      {
+        "name": "Tau Ceti f",
+        "type": "Крижана суперземля",
+        "habitability": 34,
+        "orbit": 1.35
+      }
+    ]
+  }
+]
+

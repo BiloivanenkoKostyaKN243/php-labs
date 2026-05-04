@@ -1,0 +1,351 @@
+/* ===== Premium Space Explorer Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Inter:wght@300;400;600&display=swap');
+
+/* Main space view adjustments */
+main.main--space {
+    padding: 0 !important;
+    background: #000;
+    margin: 0;
+    flex: 1;
+}
+
+main.main--space > * {
+    margin: 0;
+    padding: 0;
+}
+
+.space-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+#space-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+
+/* Glassmorphism Panels Base */
+.glass-panel {
+    background: rgba(10, 15, 30, 0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+/* Spaceship Dashboard HUD */
+.space-hud {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    padding: 24px;
+    min-width: 320px;
+    transform: translateX(120%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 50;
+}
+
+.space-hud.active {
+    transform: translateX(0);
+}
+
+.hud-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 204, 255, 0.3);
+    color: #4ddbff;
+    text-shadow: 0 0 10px rgba(77, 219, 255, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hud-title .planet-icon {
+    font-size: 1.5rem;
+}
+
+.hud-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.hud-label {
+    opacity: 0.7;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hud-value {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #e0f7fa;
+}
+
+.hud-value.rare { color: #b388ff; text-shadow: 0 0 8px rgba(179, 136, 255, 0.6); }
+.hud-value.good { color: #69f0ae; text-shadow: 0 0 8px rgba(105, 240, 174, 0.6); }
+
+/* Progress Bar for Scanning */
+.scan-container {
+    margin-top: 20px;
+}
+
+.scan-bar-bg {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.scan-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    transition: width 0.1s linear;
+}
+
+.scan-label {
+    font-size: 0.75rem;
+    color: #4ddbff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; text-shadow: 0 0 8px rgba(77, 219, 255, 0.8); }
+    100% { opacity: 0.6; }
+}
+
+/* Crosshair / Focus indicator */
+.space-crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+}
+
+.space-crosshair.active {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(0.8) rotate(45deg);
+}
+
+.space-crosshair::before, .space-crosshair::after {
+    content: '';
+    position: absolute;
+    background: #4ddbff;
+    box-shadow: 0 0 8px rgba(77, 219, 255, 0.6);
+}
+
+.space-crosshair::before { width: 40px; height: 1px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.space-crosshair::after { width: 1px; height: 40px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* Controls info */
+.space-controls {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    padding: 18px 24px;
+    z-index: 50;
+}
+
+.space-controls-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    opacity: 0.9;
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: x;
+    row-gap: 8px;
+    column-gap: 20px;
+}
+
+.control-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.key {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #4ddbff;
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+}
+
+/* Jump Button */
+.jump-btn-container {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+}
+
+.btn-hyperjump {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.6), rgba(79, 70, 229, 0.6));
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    padding: 14px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.btn-hyperjump:hover {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.8), rgba(79, 70, 229, 0.8));
+    border-color: rgba(139, 92, 246, 0.8);
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-hyperjump:active {
+    transform: translateY(1px);
+}
+
+.btn-hyperjump .icon {
+    margin-right: 8px;
+}
+
+/* Warp Effect Overlay */
+.warp-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    transition: opacity 0.5s ease;
+}
+
+.warp-overlay.active {
+    opacity: 1;
+    transition: opacity 0.1s ease;
+}
+
+/* Back to site button */
+.space-back-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s;
+    z-index: 50;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.space-back-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Game Stats Tracker */
+.game-stats-tracker {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    padding: 15px 20px;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.tracker-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 0.85rem;
+}
+
+/* Loading indicator */
+.space-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #4ddbff;
+    font-family: 'Orbitron', monospace;
+    z-index: 150;
+}
+.space-loading.hidden { display: none; }
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 3px solid rgba(77, 219, 255, 0.1);
+    border-top-color: #4ddbff;
+    border-radius: 50%;
+    animation: spin 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+    margin: 0 auto 15px;
+    box-shadow: 0 0 20px rgba(77, 219, 255, 0.2);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .space-hud { bottom: 80px; right: 10px; min-width: 280px; padding: 15px; }
+    .space-controls { top: 10px; left: 10px; padding: 12px; }
+    .game-stats-tracker { top: 80px; right: 10px; padding: 12px; }
+    .jump-btn-container { bottom: 20px; }
+}
+
+
