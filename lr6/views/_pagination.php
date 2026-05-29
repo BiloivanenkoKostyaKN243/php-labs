@@ -1,0 +1,1 @@
+<?php if (($pages ?? 1) > 1): ?><div class="pagination" style="margin:16px 0;display:flex;gap:8px;flex-wrap:wrap;"><?php for($i=1;$i<=$pages;$i++): ?><a class="btn btn--small<?= $i==($page??1)?' btn--secondary':'' ?>" href="index.php?route=<?= htmlspecialchars($_GET['route'] ?? '') ?>&page=<?= $i ?>"><?= $i ?></a><?php endfor; ?></div><?php endif; ?>
